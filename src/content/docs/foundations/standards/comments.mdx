@@ -1,40 +1,51 @@
 ---
-title: Comments
+title: Code Comments
 ---
 
-import { LinkCard } from "@astrojs/starlight/components";
+Comments are like little notes you leave in your code to make things clearer for you or others who might work on it later. They don’t affect how your code runs but can be super helpful for understanding what’s going on.
 
 ### Comment Tags
+
+Using comment tags is a great way to keep your code organized and highlight important sections. Here are some common ones:
 
 ```javascript
 // TODO: Tasks to be tackled later.
 ```
 
+Use this when you have something that needs to be done but isn’t urgent right now. It’s a reminder to circle back and handle it later.
+
 ```javascript
 // FIXME: Indicates something broken.
 ```
+
+This is a flag for something that’s not working right. It’s like saying, “Hey, this needs fixing!” so you or someone else knows to come back and sort it out.
 
 ```javascript
 // NOTE: Provides general notes or additional context.
 ```
 
+Notes are great for adding extra context or explanations. Maybe there’s a tricky part of the code that could use a little more clarification—this is where a note comes in handy.
+
 ```javascript
 // HACK: Marks temporary or unconventional solutions.
 ```
+
+Sometimes, you have to use a workaround to get something to work. A “HACK” comment is your way of marking those spots where you had to get creative, just in case it needs revisiting later.
 
 ```javascript
 // REVIEW: Suggests areas needing a second look.
 ```
 
+When you’re unsure about a piece of code or think it might need a second opinion, pop in a “REVIEW” comment. It’s like saying, “Hey, can we check this out again?”
+
 ```javascript
 // OPTIMIZE: Highlights code for optimization.
 ```
 
+If you spot a part of the code that could be more efficient, an “OPTIMIZE” comment is perfect. It’s a nudge to come back and make that section better when you have time.
+
 ### Code Comments
 
-<LinkCard
-  title="TSDoc"
-  description="Follow TSDoc conventions for documenting code effectively."
-  href="https://tsdoc.org/"
-  target="_blank"
-/>
+Good code comments can make all the difference, especially in larger projects. They help you remember why you did something a certain way and make it easier for others to pick up where you left off. When adding comments, try to keep them clear and to the point—no need to write an essay!
+
+For more detailed documentation, especially if you're working with TypeScript, check out [TSDoc](https://tsdoc.org/). It’s a great resource for learning how to document your code effectively, making sure everything is clear and easy to understand for everyone involved.
