@@ -2,13 +2,13 @@ import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
 export default defineConfig({
-  site: "https://coding-kickstart.github.io",
-  base: "my-repo",
+  site: "https://johnnyoak85.github.io/astro-starlight",
+  base: "/coding-kickstart",
   integrations: [
     starlight({
       title: "Coding Kickstart: Your Beginner's Guide to Building Cool Stuff",
       social: {
-        github: "https://github.com/JohnnyOak85/coding-kickstart.git",
+        github: "https://github.com/JohnnyOak85/",
       },
       sidebar: [
         { label: "Health Tips", link: "health_tips/" },
