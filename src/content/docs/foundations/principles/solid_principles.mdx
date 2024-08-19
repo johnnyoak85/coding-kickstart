@@ -2,32 +2,40 @@
 title: SOLID Principles
 ---
 
-The SOLID principles are a set of guidelines that help developers create software that is easy to maintain, extend, and understand. These principles are particularly useful in object-oriented programming and can be applied to both web and game development to improve code quality and design.
+The SOLID principles are like the golden rules of software design. They help you write code that’s easy to understand, maintain, and extend, which is super important, especially in object-oriented programming. Whether you’re working on a web app or a game, these principles can really boost your code quality.
 
 ## SRP (Single Responsibility Principle) & Modularity
 
-The Single Responsibility Principle states that a class or module should have only one reason to change, meaning it should have only one job or responsibility. Modularity involves breaking down a program into smaller, independent parts.
+The SRP is all about focus: each class or module should only have one job or responsibility. If something changes, there should only be one reason for that class to change. Alongside this, modularity means breaking your program down into smaller, independent parts that work together.
 
-- Keep related logic together in one place.
-  - **Game Example**: Keep all player-related logic in a `Player` class.
-  - **Web Example**: Use a `User` class to manage user-related operations.
-- Separate business logic from user interface logic.
-  - **Game Example**: Separate game mechanics from rendering logic.
-  - **Web Example**: Use separate modules for data processing and UI rendering.
-- Break your code into small, independent modules.
-  - **Game Example**: Use different files for different game components, like `Player.js` and `Enemy.js`.
-  - **Web Example**: Organize your web application into modules like `Auth.js` and `Dashboard.js`.
-- Write small functions that do one thing well (atomic functions).
+### Tips for SRP & Modularity
+
+- **Keep Related Logic Together**: Stick to keeping related code in one place.
+
+  - **Game Example**: Handle all player-related stuff in a `Player` class.
+  - **Web Example**: Use a `User` class to manage everything user-related.
+
+- **Separate Logic and UI**: Don’t mix business logic with user interface code.
+
+  - **Game Example**: Separate the game mechanics from how the game looks.
+  - **Web Example**: Use one module for data processing and another for rendering the UI.
+
+- **Break Code into Modules**: Split your code into small, independent files.
+
+  - **Game Example**: Use different files for different game parts, like `Player.js` and `Enemy.js`.
+  - **Web Example**: Organize your web app into modules like `Auth.js` and `Dashboard.js`.
+
+- **Write Small, Single-Purpose Functions**: Focus on making each function do just one thing.
 
   ```javascript
-  // Bad
+  // Not Ideal
   function updatePlayer(player, score, level) {
     player.score += score;
     player.level = level;
     console.log("Player updated");
   }
 
-  // Good
+  // Better
   function updatePlayerScore(player, score) {
     player.score += score;
   }
@@ -39,149 +47,145 @@ The Single Responsibility Principle states that a class or module should have on
 
 ## OCP (Open/Closed Principle)
 
-The Open/Closed Principle states that software entities should be open for extension but closed for modification. This means you should be able to add new functionality without changing existing code.
+The OCP suggests that your code should be open to extension but closed to modification. This means you should be able to add new features without having to change the existing code.
 
-- Design your code to allow new features without altering existing code.
+### Tips for OCP
 
-```javascript
-// Bad
-class Game {
-  render3D() {
-    /* ... */
+- **Design for Flexibility**: Plan your code so you can add new features without touching what’s already there.
+
+  ```javascript
+  // Not Ideal
+  class Game {
+    render3D() {
+      /* ... */
+    }
+    render2D() {
+      /* ... */
+    }
   }
-  render2D() {
-    /* ... */
-  }
-}
 
-// Good
-class Game {
-  render(renderer) {
-    renderer.render();
+  // Better
+  class Game {
+    render(renderer) {
+      renderer.render();
+    }
   }
-}
-```
+  ```
 
-    - Game Use Case: Add new rendering techniques without modifying the Game class.
-    - Web Use Case: Add new payment gateways to an e-commerce platform without altering the existing payment processing code.
+  - **Game Example**: Add new rendering methods without changing the core `Game` class.
+  - **Web Example**: Integrate new payment methods into your e-commerce site without touching the existing payment code.
 
 ## LSP (Liskov Substitution Principle)
 
-The Liskov Substitution Principle states that objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.
+LSP is about making sure that objects of a superclass can be replaced with objects of a subclass without messing up the program. Basically, any subclass should be able to stand in for its parent class without causing errors.
 
-- Use immutable objects to prevent unwanted changes.
-- Prefer composition over inheritance for flexibility.
+- **Use Immutable Objects**: These prevent accidental changes.
+- **Favor Composition Over Inheritance**: This gives you more flexibility.
 
-```javascript
-// Bad
-class Bird extends Animal {
-  fly() {
-    console.log("Flying...");
-  }
-}
-
-// Good
-class FlyingAbility {
-  fly() {
-    console.log("Flying...");
-  }
-}
-
-class Animal {
-  constructor(flyingAbility) {
-    this.flyingAbility = flyingAbility;
-  }
-
-  performFly() {
-    if (this.flyingAbility) {
-      this.flyingAbility.fly();
-    } else {
-      console.log("This animal can't fly.");
+  ```javascript
+  // Not Ideal
+  class Bird extends Animal {
+    fly() {
+      console.log("Flying...");
     }
   }
-}
 
-const flyingAbility = new FlyingAbility();
-const bird = new Animal(flyingAbility);
+  // Better
+  class FlyingAbility {
+    fly() {
+      console.log("Flying...");
+    }
+  }
 
-bird.performFly(); // Outputs: "Flying..."
-```
+  class Animal {
+    constructor(flyingAbility) {
+      this.flyingAbility = flyingAbility;
+    }
 
-    - Game Use Case: Add abilities to characters dynamically without changing the character class hierarchy.
-    - Web Use Case: Swap out different authentication strategies (e.g., OAuth, JWT) without altering the user management system.
+    performFly() {
+      if (this.flyingAbility) {
+        this.flyingAbility.fly();
+      } else {
+        console.log("This animal can't fly.");
+      }
+    }
+  }
+
+  const flyingAbility = new FlyingAbility();
+  const bird = new Animal(flyingAbility);
+
+  bird.performFly(); // Outputs: "Flying..."
+  ```
+
+  - **Game Example**: Add abilities to characters without changing their class hierarchy.
+  - **Web Example**: Switch between different authentication strategies (like OAuth and JWT) without changing your user management system.
 
 ## ISP (Interface Segregation Principle)
 
-The Interface Segregation Principle states that no client should be forced to depend on methods it does not use. This means creating smaller, more specific interfaces.
+The ISP advises against forcing a class to implement methods it doesn’t need. Instead, create smaller, more specific interfaces.
 
-- Create interfaces that are specific to client needs.
+### Tips for ISP
 
-```javascript
-// Bad
-class GameControls {
-  move() {
-    /* ... */
-  }
-  shoot() {
-    /* ... */
-  }
-  fly() {
-    /* ... */
-  }
-}
+- **Design Specific Interfaces**: Tailor interfaces to fit the needs of your clients.
 
-// Good
-class GroundControls {
-  move() {
-    /* ... */
+  ```javascript
+  // Not Ideal
+  class GameControls {
+    move() {
+      /* ... */
+    }
+    shoot() {
+      /* ... */
+    }
+    fly() {
+      /* ... */
+    }
   }
-  shoot() {
-    /* ... */
-  }
-}
 
-class AirControls {
-  fly() {
-    /* ... */
+  // Better
+  class GroundControls {
+    move() {
+      /* ... */
+    }
+    shoot() {
+      /* ... */
+    }
   }
-}
-```
 
-    - Game Use Case: Different control interfaces for ground and air vehicles.
-    - Web Use Case: Separate interfaces for different user roles, like admin and regular users.
+  class AirControls {
+    fly() {
+      /* ... */
+    }
+  }
+  ```
+
+  - **Game Example**: Different control interfaces for ground and air vehicles.
+  - **Web Example**: Separate interfaces for different user roles, like admin and regular users.
 
 ## DIP (Dependency Inversion Principle)
 
-The Dependency Inversion Principle states that high-level modules should not depend on low-level modules. Both should depend on abstractions.
+### Tips for DIP
 
-- Depend on abstractions rather than concrete implementations.
+- **Depend on Abstractions, Not Details**: Write your code so that it depends on abstractions, not specific implementations.
 
-```javascript
-// Bad
-class Game {
-  constructor() {
-    this.renderer = new WebGLRenderer();
+  ```javascript
+  // Not Ideal
+  class Game {
+    constructor() {
+      this.renderer = new WebGLRenderer();
+    }
   }
-}
 
-// Good
-class Game {
-  constructor(renderer) {
-    this.renderer = renderer;
+  // Better
+  class Game {
+    constructor(renderer) {
+      this.renderer = renderer;
+    }
   }
-}
 
-const gameRenderer = new WebGLRenderer();
-const game = new Game(gameRenderer);
-```
+  const gameRenderer = new WebGLRenderer();
+  const game = new Game(gameRenderer);
+  ```
 
-    - Game Use Case: Swap out different rendering engines (e.g., WebGL, Canvas) without altering the game logic.
-    - Web Use Case: Use dependency injection to provide different database connectors (e.g., MongoDB, PostgreSQL) without changing the data access layer.
-
-## Glossary of Terms
-
-- **Class**: A blueprint for creating objects in object-oriented programming.
-- **Module**: A self-contained unit of code that encapsulates functionality.
-- **Immutable Object**: An object whose state cannot be modified after it is created.
-- **Composition**: A design principle that involves combining simple objects to create more complex ones.
-- **Interface**: A contract that defines a set of methods that a class must implement.
+  - **Game Example**: Swap out different rendering engines (like WebGL or Canvas) without changing your game’s logic.
+  - **Web Example**: Use dependency injection to switch between different database systems (like MongoDB or PostgreSQL) without altering your data access code.
