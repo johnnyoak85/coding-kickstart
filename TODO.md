@@ -1,16 +1,12 @@
 # TODO
 
 - [ ] Introductory Page
-- [ ] Glossary
 - [ ] Add images
 - [x] Health Tips
-- [ ] Code Editors
-  - [ ] VSCode
-    - [ ] VSCodium
-    - [ ] Extensions
-      - [ ] Add `Live Server`
-      - [ ] Update the extensions repository
-  - [x] Notepad++
+- [x] Code Editors
+  - [x] Introduction
+  - [x] Popular Code Editors
+  - [x] VS Code Extensions
 - [ ] Foundations of Software Development
   - [x] Version Control
     - [x] Introduction to Version Control
@@ -22,29 +18,27 @@
     - [x] Merge and Pull Requests
     - [x] Git Cheat Sheet
     - [x] Troubleshooting and Resources
+    - [x] Glossary
   - [ ] Coding Standards
-    - [ ] Naming Conventions
-      - [ ] Update text to be less formal
+    - [x] Naming Conventions
     - [ ] Formatting
     - [ ] Best Practices for writing clean code
-  - [ ] Software Development Principles
-    - [ ] Introduction and Core Principles
-      - [ ] Update text to be less formal
-    - [ ] SOLID Principles
-      - [ ] Update text to be less formal
-    - [ ] Coding Practices and Patterns
-      - [ ] Update text to be less formal
-    - [ ] Advanced Concepts and Considerations
-      - [ ] Update text to be less formal
-    - [ ] Resources
-      - [ ] Update text to be less formal
-- [ ] Design Patterns
-  - [ ] Introduction
-  - [ ] Creational Patterns
-  - [ ] Structural Patterns
-  - [ ] Behavioral Patterns
-  - [ ] Resources and Further Reading
-  - [ ] Glossary
+    - [x] Code Comments
+    - [ ] File Organization
+  - [x] Software Development Principles
+    - [x] Introduction and Core Principles
+    - [x] SOLID Principles
+    - [x] Code Practices and Patterns
+    - [x] Advanced Concepts and Considerations
+    - [x] Resources
+    - [x] Glossary
+  - [ ] Design Patterns
+    - [ ] Introduction
+    - [ ] Creational Patterns
+    - [ ] Structural Patterns
+    - [ ] Behavioral Patterns
+    - [ ] Resources and Further Reading
+    - [ ] Glossary
 - [ ] Debugging
   - [ ] Tools
   - [ ] Techniques
