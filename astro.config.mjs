@@ -12,8 +12,17 @@ export default defineConfig({
       },
       sidebar: [
         { label: "Health Tips", link: "health_tips/" },
-        { label: "Code Editors", link: "code_editors/" },
-        { label: "VSCode Extensions", link: "extensions/" },
+        {
+          label: "Code Editors",
+          items: [
+            { label: "Introduction", link: "code-editors/introduction/" },
+            {
+              label: "Code Editors",
+              link: "code-editors/popular-code-editors/",
+            },
+            { label: "VSCode Extensions", link: "code-editors/extensions/" },
+          ],
+        },
         {
           label: "Foundations of Software Development",
           items: [
@@ -56,6 +65,23 @@ export default defineConfig({
                   label: "Troubleshooting and Resources",
                   link: "foundations/version-control/troubleshooting_and_resources/",
                 },
+                {
+                  label: "Glossary",
+                  link: "foundations/version-control/glossary/",
+                },
+              ],
+            },
+            {
+              label: "Coding Standards",
+              items: [
+                {
+                  label: "Naming Conventions",
+                  link: "foundations/standards/naming_conventions/",
+                },
+                {
+                  label: "Code Comments",
+                  link: "foundations/standards/comments/",
+                },
               ],
             },
             {
@@ -81,14 +107,9 @@ export default defineConfig({
                   label: "Resources",
                   link: "foundations/principles/resources/",
                 },
-              ],
-            },
-            {
-              label: "Coding Standards",
-              items: [
                 {
-                  label: "Naming Conventions",
-                  link: "foundations/standards/naming_conventions/",
+                  label: "Glossary",
+                  link: "foundations/principles/glossary/",
                 },
               ],
             },
