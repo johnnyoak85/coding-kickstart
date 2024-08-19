@@ -1,0 +1,72 @@
+# TODO
+
+- [ ] Introductory Page
+- [ ] Glossary
+- [ ] Add images
+- [x] Health Tips
+- [ ] Code Editors
+  - [ ] VSCode
+    - [ ] VSCodium
+    - [ ] Extensions
+      - [ ] Add `Live Server`
+      - [ ] Update the extensions repository
+  - [x] Notepad++
+- [ ] Foundations of Software Development
+  - [x] Version Control
+    - [x] Introduction to Version Control
+    - [x] Getting Started with Git
+    - [x] Working with Git Repositories
+    - [x] Branching
+    - [x] Merging and Rebasing
+    - [x] Collaborating with GitHub and GitLab
+    - [x] Merge and Pull Requests
+    - [x] Git Cheat Sheet
+    - [x] Troubleshooting and Resources
+  - [ ] Coding Standards
+    - [ ] Naming Conventions
+      - [ ] Update text to be less formal
+    - [ ] Formatting
+    - [ ] Best Practices for writing clean code
+  - [ ] Software Development Principles
+    - [ ] Introduction and Core Principles
+      - [ ] Update text to be less formal
+    - [ ] SOLID Principles
+      - [ ] Update text to be less formal
+    - [ ] Coding Practices and Patterns
+      - [ ] Update text to be less formal
+    - [ ] Advanced Concepts and Considerations
+      - [ ] Update text to be less formal
+    - [ ] Resources
+      - [ ] Update text to be less formal
+- [ ] Design Patterns
+  - [ ] Introduction
+  - [ ] Creational Patterns
+  - [ ] Structural Patterns
+  - [ ] Behavioral Patterns
+  - [ ] Resources and Further Reading
+  - [ ] Glossary
+- [ ] Debugging
+  - [ ] Tools
+  - [ ] Techniques
+  - [ ] Problem solving
+  - [ ] Rubber Ducking
+    - [ ] Update text to be less formal
+- [ ] Data Management
+  - [ ] Assets
+  - [ ] Data Storage
+  - [ ] Data Backup
+    - [ ] Update text to be less formal
+  - [ ] Data Archiving
+    - [ ] Update text to be less formal
+  - [ ] Sensitive Data Management
+    - [ ] Using a Password Manager
+    - [ ] Secrets
+    - [ ] Environment Variables
+- [ ] Testing
+- [ ] Deployment Basics
+- [ ] Basic Networking Concepts
+- [ ] Project Management Basics
+  - [ ] Task Breakdown
+  - [ ] TODO sheet
+  - [ ] Roadmap
+  - [ ] Kanban Board
