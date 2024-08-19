@@ -1,0 +1,279 @@
+---
+title: Contributing
+---
+
+import {
+  Aside,
+  Card,
+  CardGrid,
+  Code,
+  LinkCard,
+  Steps,
+} from "@astrojs/starlight/components";
+
+## Best Practices
+
+### Readability
+
+<CardGrid>
+  <Card title="Use Descriptive Names">
+    Select variable, function, file and folder names that clearly indicate their
+    purpose, making it easier to understand the code's intent without additional
+    comments.
+  </Card>
+  <Card title="Limit Line Length">
+    Keep your lines under 80-100 characters to ensure the code is easily
+    readable on any device or screen size.
+  </Card>
+  <Card title="Consistent Commenting">
+    Use comments to explain the reasoning behind your code rather than what the
+    code does. Utilize JSDoc for thorough documentation of functions and
+    methods.
+  </Card>
+  <Card title="Use Template Literals">
+    Employ template literals for string concatenation to enhance readability and
+    make the strings easier to manipulate.
+  </Card>
+  <Card title="User-Facing Text">
+    Centralize user-facing text into constants or configuration files to make
+    updates easier and maintain consistency across the application.
+  </Card>
+</CardGrid>
+
+### Organization
+
+<CardGrid>
+  <Card title="Declare Constants First">
+    Begin with const declarations, followed by let to clearly separate immutable
+    and mutable variables, enhancing structure and readability.
+  </Card>
+  <Card title="Group Similar Logic Together">
+    Organize related logic together to maintain a coherent structure, which aids
+    in understanding and maintaining the code.
+  </Card>
+  <Card title="Separate Business Logic from UI Logic">
+    Isolate business logic from UI logic to create modular, testable, and
+    maintainable code.
+  </Card>
+  <Card title="Modularize Your Code">
+    Break your code into small, reusable modules, promoting better organization
+    and ease of maintenance.
+  </Card>
+  <Card title="Limit File Length">
+    Keep files relatively short (e.g., under 300-400 lines) to improve
+    readability and maintainability. Long files can be harder to navigate and
+    understand.
+  </Card>
+  <Card title="Modularity">
+    Ensure each module focuses on a single responsibility and can be easily
+    reused or replaced. This promotes better code organization, enhances
+    reusability, and simplifies testing.
+  </Card>
+  <Card title="Adopt a Coding Standard">
+    Use tools like ESLint and Prettier to enforce consistent coding styles and
+    standards across your codebase. Consistency in coding style improves
+    readability and reduces the likelihood of errors.
+  </Card>
+</CardGrid>
+
+### Maintainability
+
+<CardGrid>
+  <Card title="Avoid Deep Nesting">
+    Reduce deep nesting to simplify code structure, making it easier to follow
+    and maintain.
+  </Card>
+  <Card title="Use Default Parameters">
+    Provide default values for function parameters to prevent issues with
+    undefined values and improve function robustness.
+  </Card>
+  <Card title="Avoid Magic Numbers">
+    Replace hardcoded numbers with named constants to convey their meaning and
+    facilitate easier updates.
+  </Card>
+  <Card title="Consistent Error Handling">
+    Apply consistent and graceful error handling across the codebase using
+    try/catch blocks for synchronous code and .catch for promises.
+  </Card>
+  <Card title="Unused Code">
+    Regularly review and remove unused code to reduce clutter and avoid
+    confusion.
+  </Card>
+  <Card title="Commented Code">
+    Avoid leaving commented-out code in your codebase. It can be confusing and
+    indicate poor version control practices. Use version control systems to keep
+    track of code changes instead.
+  </Card>
+  <Card title="Avoid Liberal Use of External Dependencies">
+    Be selective about the external libraries and frameworks you include in your
+    project. Each dependency adds to the project's complexity and potential
+    security risks. Regularly review and update dependencies to keep the project
+    secure and performant.
+  </Card>
+</CardGrid>
+
+### Code Quality
+
+<CardGrid>
+  <Card title="Use Object Destructuring">
+    Destructure objects to extract multiple properties in a clean and concise
+    manner, enhancing code clarity.
+  </Card>
+  <Card title="Favor Immutability">
+    Prefer creating new instances of objects and arrays instead of modifying
+    existing ones to avoid unintended side effects and improve code reliability.
+  </Card>
+  <Card title="Use Promises and Async/Await">
+    Utilize Promises and async/await for handling asynchronous operations, which
+    enhances code readability and simplifies error handling.
+  </Card>
+  <Card title="Avoid Side Effects">
+    Design functions to avoid changing state or modifying external variables,
+    ensuring predictability and ease of testing.
+  </Card>
+  <Card title="DRY Principle (Don't Repeat Yourself)">
+    Strive to reduce repetition by abstracting repeated logic into reusable
+    functions or modules, which makes your codebase more maintainable and easier
+    to update.
+  </Card>
+  <Card title="Atomic Functions">
+    Write small, single-purpose functions that perform one task well. This makes
+    your code more modular, easier to test, and simpler to understand.
+  </Card>
+  <Card title="Typing">
+    Use type annotations throughout your codebase. This helps catch errors early
+    during development, improves documentation, and enhances support in code
+    editors through features like auto-completion and type checking.
+  </Card>
+</CardGrid>
+
+## Branch Guidelines
+
+<Steps>
+
+1. Start each branch with your chosen name tag for ease of identification.
+2. End it with a slash.
+3. Follow it with the issue ticket number to link it to it's card.
+4. End it in an hyphen.
+5. Then add the issue ticket title as a description.
+6. Use hyphens to separate the words of the description.
+7. Use only alphanumberic lower cased characters and hyphens.
+
+</Steps>
+
+```bash
+nametag/123-user-validation
+```
+
+## Commit Guidelines
+
+<Steps>
+
+1. Keep each commit as unitary as possible.
+2. Ensure each commit keeps the code functional, without breaking anything.
+3. Use a prefix in your commit message that describes the type of change.
+4. Follow it with the scope of the change.
+5. Provide a concise and descriptive commit message detailing the changes introduced.
+6. Ensure that your commit message starts with a present tense verb.
+7. Use only alphanumberic lower cased characters and hyphens.
+
+</Steps>
+
+<Card title="Commit Message Types">
+
+- `chore:`: Includes commits related to project maintenance tasks.
+- `ci:`: Sets up or updates continuous integration configuration.
+- `docs:`: Updates or adds documentation.
+- `feat:`: Introduces a new feature.
+- `fix:`: Addresses a bug or defect.
+- `refactor:`: Restructures code without changing its external behavior.
+- `style:`: Makes non-functional changes like formatting.
+- `test:`: Adds or modifies tests.
+
+</Card>
+
+Example:
+
+```bash
+feat(user): add user validation
+```
+
+## Merge Request Guidelines
+
+<Steps>
+
+1. Aim to create small merge requests.
+2. Review and test your own code.
+3. For a single commit, the title should be the subject of the commit message.
+4. For multiple commits, the title should summarise the set of commits.
+5. Add the purpose of the branch in the description. What is it changing?
+6. Assign it to yourself.
+7. Add one or more reviewers.
+
+</Steps>
+
+<Aside
+  type="danger"
+  title="To ensure your code is up to date, please use rebase instead of merge"
+/>
+
+```bash
+git pull --rebase origin main
+```
+
+You might have commits to pull and to push. Make sure you _push_ them after resolving any potential conflicts.
+
+```bash
+git push -f
+```
+
+This ensures the commit history is nice, clean and easy to read.
+
+## Code Review Process
+
+<Aside
+  type="caution"
+  title="All pull requests undergo a code review process to ensure quality, maintainability, and adherence to coding standards."
+/>
+
+### Here's what to expect during code review
+
+<Steps>
+
+1. The Git Master or a team reviewer will assess your code for functionality, clarity, efficiency, and adherence to coding conventions.
+2. Feedback and suggestions for improvement will be provided through comments on your pull request.
+3. You'll have the opportunity to discuss feedback and make necessary changes before merging.
+
+</Steps>
+
+### Tips for a Smooth Code Review
+
+- Focus each pull request on a single feature or bug fix.
+- Write clear and concise commit messages.
+- Include relevant documentation updates or tests alongside code changes.
+- Respond promptly to reviewer feedback.
+
+## Code Tags and Comments
+
+<Aside
+  type="caution"
+  title="Use clear comments and informative tags to enhance code understanding and maintenance."
+/>
+
+### Comment Tags
+
+<Code code="// TODO: Tasks to be tackled later." lang="js" />
+<Code code="// FIXME: Indicates something broken." lang="js" />
+<Code code="// NOTE: Provides general notes or additional context." lang="js" />
+<Code code="// HACK: Marks temporary or unconventional solutions." lang="js" />
+<Code code="// REVIEW: Suggests areas needing a second look." lang="js" />
+<Code code="// OPTIMIZE: Highlights code for optimization." lang="js" />
+
+### Code Comments
+
+<LinkCard
+  title="TSDoc"
+  description="Follow TSDoc conventions for documenting code effectively."
+  href="https://tsdoc.org/"
+  target="_blank"
+/>

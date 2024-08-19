@@ -1,0 +1,123 @@
+---
+title: Troubleshooting and Resources
+---
+
+## Common Issues and Solutions
+
+### Detached HEAD
+
+**Issue**: You are in a detached HEAD state, meaning you are not on any branch but directly on a commit.
+
+**Solution**: To return to a branch, you can create a new branch from the current commit or switch back to an existing branch.
+
+```bash
+# Create a new branch from the current commit
+git checkout -b <new_branch_name>
+
+# Switch back to an existing branch
+git checkout <branch_name>
+```
+
+### Merge Conflicts
+
+**Issue**: Conflicts occur when merging branches or rebasing, indicating that changes in the branches cannot be automatically resolved.
+
+**Solution**: Manually resolve conflicts in the affected files, then stage and commit the resolved files.
+
+```bash
+# View conflicts
+git status
+
+# Open conflicted files and resolve conflicts
+
+# After resolving conflicts
+git add <resolved_file>
+git commit
+```
+
+### Untracked Files
+
+**Issue**: Untracked files are present in your working directory and are not being tracked by Git.
+
+**Solution**: To track these files, add them to the staging area.
+
+```bash
+# Add untracked files
+git add <file>
+```
+
+### Changes Not Staged for Commit
+
+**Issue**: You have made changes to tracked files that are not yet staged for commit.
+
+**Solution**: Stage the changes before committing.
+
+```bash
+# Stage changes
+git add <file>
+```
+
+### Resetting Changes
+
+**Issue**: You want to discard changes made to files or reset the repository to a previous state.
+
+**Solution**: Use git reset or git checkout to reset changes.
+
+```bash
+# Discard changes in a file
+git restore <file>
+
+# Reset to a specific commit
+git reset --hard <commit_id>
+```
+
+### Rebase Issues
+
+**Issue**: Problems during a rebase, such as conflicts or interruptions.
+
+**Solution**: Resolve conflicts and continue the rebase.
+
+```bash
+# Continue rebase after resolving conflicts
+git rebase --continue
+
+# Skip the current rebase step if needed
+git rebase --skip
+```
+
+### Remote Repository Issues
+
+**Issue**: Problems with pushing or pulling from a remote repository, such as authentication errors or incorrect URLs.
+
+**Solution**: Check remote settings and credentials.
+
+```bash
+# Verify remote settings
+git remote -v
+
+# Update remote URL
+git remote set-url <remote_name> <new_url>
+```
+
+## Useful Resources
+
+### Official Git Documentation
+
+- [Git Documentation](https://git-scm.com/doc): The official Git documentation, including a reference manual and a book.
+
+### GitHub Guides
+
+- [GitHub Documentation](https://docs.github.com/en): Comprehensive guides and tutorials on using GitHub effectively.
+- [GitHub Learning Lab](https://lab.github.com/): Interactive courses to help you learn Git and GitHub.
+
+### Additional Learning Resources
+
+- [Pro Git Book](https://git-scm.com/book/en/v2): A free book that covers Git in depth.
+- [Atlassian Git Tutorials](https://github.community/): Tutorials and best practices for using Git.
+
+### Community and Support
+
+- [Stack Overflow Git Questions](https://stackoverflow.com/questions/tagged/git): A forum for asking and answering Git-related questions.
+- [GitHub Community Forum](https://github.community/): A place to discuss and get support for GitHub-related issues.
+
+These resources and solutions should help you address common issues you may encounter while using Git and GitHub. For more detailed guidance, refer to the official documentation and community forums.

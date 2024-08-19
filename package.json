@@ -1,0 +1,23 @@
+{
+  "name": "coding-kickstart",
+  "version": "1.0.0",
+  "description": "Your Beginner's Guide to Building Cool Stuff",
+  "main": "index.ts",
+  "scripts": {
+    "start": "astro preview --host",
+    "dev": "astro dev",
+    "build": "astro check && astro build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@astrojs/check": "^0.9.2",
+    "@astrojs/starlight": "^0.26.1",
+    "astro": "^4.14.2",
+    "sharp": "^0.33.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}

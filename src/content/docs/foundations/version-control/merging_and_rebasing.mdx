@@ -1,0 +1,151 @@
+---
+title: Merging and Rebasing
+---
+
+## Merging Branches
+
+### What’s Merging?
+
+Merging is how you combine changes from one branch into another. Usually, when you’re done working on a feature branch, you merge it back into the main branch (often called `main` or `master`). It’s like taking everything you worked on and adding it to the main project.
+
+### How to Merge a Branch
+
+Here’s how to merge changes from another branch into your current branch:
+
+1. First, switch to the branch you want to merge into (like `main`):
+
+   ```sh
+   git checkout main
+   ```
+
+2. Then, merge the other branch into it:
+   ```sh
+   git merge <branch_name>
+   ```
+
+Just replace `<branch_name>` with the name of the branch you want to bring in.
+
+## Rebasing Branches
+
+### What’s Rebase?
+
+Rebasing is a bit like merging, but instead of combining everything at once, it replays your changes on top of the latest changes from the main branch. This keeps your project’s history clean and straight, without extra merge commits cluttering things up.
+
+### How to Rebase Your Branch
+
+Before you wrap up work on a feature branch, make sure it’s up to date with the latest stuff from the main branch. Here’s how:
+
+1. Switch to your feature branch if you’re not already there:
+
+   ```sh
+   git checkout <branch_name>
+   ```
+
+Replace `<branch_name>` with the name of your feature branch.
+
+2. Rebase your branch onto the latest main branch:
+
+   ```sh
+   git pull --rebase origin main
+   ```
+
+   This pulls in the latest changes from `main` and replays your commits on top of them.
+
+   :::note
+   If you run into any conflicts during the rebase, Git will pause and let you sort them out. After fixing any issues, run:
+
+   ```sh
+   git add <conflicted_file>
+   git rebase --continue
+   ```
+
+   If you want to stop the rebase and undo it:
+
+   ```sh
+   git rebase --abort
+   ```
+
+   :::
+
+3. When you’re all done, push your rebased branch:
+
+   ```sh
+   git push -f
+   ```
+
+   :::note
+   You’ll need to use `-f` (force push) because rebasing rewrites your branch’s history.
+   :::
+
+### Keeping Your History Clean
+
+Rebasing keeps your project history neat and linear, which makes it easier to track changes and see how your project has evolved. This is super helpful when you’re working with a team since it makes code reviews simpler and avoids messy conflicts.
+
+## Resolving Merge Conflicts
+
+Sometimes, when merging or rebasing, changes from different branches might clash, resulting in a merge conflict. Don’t worry—Git will let you know when this happens.
+
+### How to Fix a Merge Conflict
+
+1. **Spot the Conflicts**: Run `git status` to see which files have conflicts.
+2. **Fix the Files**: Open the conflicted files and look for the conflict markers (`<<<<<<`, `======`, `>>>>>>`). Decide which changes to keep.
+3. **Stage the Fixed Files**: After you’ve resolved the conflicts, stage the files with:
+   ```sh
+   git add <filename>
+   ```
+4. **Finish the Merge**: Once everything’s resolved, complete the merge with:
+
+   ```sh
+   git commit
+   ```
+
+### Canceling a Merge
+
+If you want to back out of a merge, you can cancel it like this:
+
+```sh
+git merge --abort
+```
+
+This will take your branch back to the way it was before you started the merge.
+
+## Resolving Rebase Conflicts
+
+Conflicts can also pop up during a rebase. Here’s what to do:
+
+1. **Spot the Conflicts**: Run `git status` to see which files have conflicts.
+2. **Fix the Files**: Open the conflicted files and look for the conflict markers. Decide what to keep.
+3. **Stage the Fixed Files**: After resolving the conflicts, stage the files:
+   ```sh
+   git add <filename>
+   ```
+4. **Continue the Rebase**: When everything’s sorted, continue the rebase with:
+   ```sh
+   git rebase --continue
+   ```
+5. **Abort the Rebase**: If you need to stop and undo the rebase, use:
+   ```sh
+    git rebase --abort
+   ```
+
+## Deleting Branches
+
+Once you’re done with a branch and have merged it, it’s a good idea to delete it to keep things tidy.
+
+### How to Delete a Local Branch
+
+To remove a branch from your local machine, use:
+
+```sh
+git branch -d <branch_name>
+```
+
+- Use `-D` if the branch hasn’t been merged and you want to force the deletion.
+
+### How to Delete a Remote Branch
+
+To delete a branch from the remote repository:
+
+```sh
+git push origin --delete <branch_name>
+```

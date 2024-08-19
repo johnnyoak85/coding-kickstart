@@ -1,0 +1,83 @@
+---
+title: Branching
+---
+
+## What’s Branching?
+
+Branching in Git is like making a copy of your project where you can try out new ideas or work on features without messing with the main code. Think of a branch as your own little workspace. When you’re done and everything looks good, you can merge it back into the main project.
+
+### Why Bother with Branches?
+
+- **Keep Things Separate**: You can work on new features or fix bugs without touching the main codebase.
+- **Teamwork Made Easy**: Everyone can have their own branch to work on without stepping on each other’s toes.
+- **Safe Experimentation**: Want to try something new? Do it in a branch! If it doesn’t work out, no worries—it won’t affect the main project.
+
+## Branch Naming Guidelines
+
+Here’s how to keep your branches organized and easy to identify:
+
+1. Start each branch name with a **tag** that helps identify its purpose.
+2. Add a **slash** after the tag.
+
+   :::tip[Using [Kanban Boards](kanban.md)?]
+
+   1. Include the **issue ticket number** next, to link the branch to a specific task or card.
+   2. Follow the number with a **hyphen**.
+   3. Then add a **brief description** of the issue or feature.
+
+   :::
+
+3. Use **hyphens** to separate words in the description.
+4. Stick to **lowercase letters and hyphens**—it keeps things clean and easy to read.
+
+## Creating and Switching Branches
+
+### How to Create a New Branch
+
+Ready to start something new? Here’s how to create a branch:
+
+```sh
+git branch <branch_name>
+```
+
+Just replace `<branch_name>` with a descriptive name that follows the guidelines above.
+
+:::note[For Example]
+
+```sh
+git branch <nametag/description>
+```
+
+```sh
+git branch <nametag/issue_number-description>
+```
+
+:::
+
+### Switching to a Branch
+
+Need to hop over to another branch? You’ve got two options:
+
+- The classic way:
+
+  ```sh
+  git checkout <branch_name>
+  ```
+
+- Or the newer, snazzier way:
+  ```sh
+  git switch <branch_name>
+  ```
+
+### Create and Switch in One Go
+
+If you want to create a new branch and jump straight into it, use:
+
+- The classic way:
+  ```sh
+  git checkout -b <branch_name>
+  ```
+- Or the newer syntax:
+  ```sh
+  git switch -c <branch_name>
+  ```

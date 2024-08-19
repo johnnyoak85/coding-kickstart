@@ -1,0 +1,104 @@
+---
+title: Merge and Pull Requests
+---
+
+## What is a Merge/Pull Request?
+
+A Merge Request (MR) or Pull Request (PR) is a method for submitting contributions to a project. When you create a MR/PR, you're asking to merge your changes from one branch into another (usually the main branch). This process facilitates collaboration and ensures that changes are reviewed before being integrated into the main codebase.
+
+## Creating a Merge/Pull Request
+
+Creating a well-structured merge or pull request (MR/PR) is essential for effective collaboration and maintaining code quality. Follow these guidelines to ensure your MR/PR is clear, concise, and easy to review:
+
+### Steps to Create a Merge/Pull Request
+
+1. **Create Small Merge Requests**: Aim to make your MR/PR as small and focused as possible. Smaller requests are easier to review and less likely to introduce bugs.
+2. **Self-Review and Test Your Code**: Before submitting, thoroughly review your own code and ensure it passes all tests. This reduces the likelihood of errors being caught during the review process.
+3. **Single Commit Title**: If your MR/PR contains a single commit, use the commit message as the title of the MR/PR.
+4. **Multiple Commits Title**: If your MR/PR contains multiple commits, summarize the changes in a concise title that reflects the overall purpose.
+5. **Describe the Purpose**: In the description field, clearly explain the purpose of the MR/PR. What does this change achieve? Why is it necessary?
+6. **Assign Yourself**: Assign the MR/PR to yourself to indicate that you are responsible for its progress.
+7. **Add Reviewers**: Assign one or more team members as reviewers. This ensures that your code will be assessed by someone else before it is merged.
+
+### Branch Naming Conventions
+
+Use a consistent naming convention for your branches to make it clear what each branch is for. For example:
+
+- `feature/feature-name` for new features
+- `fix/bug-description` for bug fixes
+- `hotfix/critical-bug` for urgent fixes in the production branch
+
+This helps in easily identifying the purpose of each branch.
+
+<Aside
+  type="danger"
+  title="To ensure your code is up to date, please use rebase instead of merge."
+/>
+
+To ensure that your branch is up to date with the main branch before merging, use the following commands:
+
+```bash
+git pull --rebase origin main
+```
+
+If there are new commits to pull, resolve any conflicts, and then push your changes:
+
+```bash
+git push -f
+```
+
+This practice ensures that the commit history remains clean, linear, and easy to follow.
+
+### Squashing Commits
+
+Before merging, consider squashing your commits if they represent small, incremental changes to the same feature or fix. Squashing makes the commit history cleaner and easier to follow. You can do this via:
+
+```bash
+git rebase -i HEAD~<number_of_commits>
+```
+
+Select "squash" for the commits you want to combine.
+
+### Handling Merge Conflicts
+
+During the rebase process, you might encounter merge conflicts. Resolve conflicts by manually editing the conflicting files. After resolving, continue the rebase process:
+
+```bash
+git add <resolved-file>
+git rebase --continue
+```
+
+If you're unsure how to resolve a conflict, seek help from a team member or reviewer. Always communicate any significant conflicts that might affect other parts of the project.
+
+### Final Review Checklist
+
+Before submitting your MR/PR, ensure the following:
+
+- [ ] Code is clean and free of commented-out code or debugging statements.
+- [ ] All tests pass, and new tests have been added if necessary.
+- [ ] Documentation has been updated to reflect any changes.
+- [ ] Commit messages are clear, concise, and follow the guidelines.
+- [ ] The MR/PR description clearly explains the purpose and impact of the changes.
+
+## Code Review Process
+
+All pull requests undergo a code review process to ensure code quality, maintainability, and adherence to coding standards.
+
+### What to Expect During Code Review
+
+1. Assessment by Git Master or Team Reviewer: A designated reviewer will evaluate your code for functionality, clarity, efficiency, and compliance with coding standards.
+2. Feedback and Suggestions: The reviewer will provide feedback and suggestions for improvement via comments on your pull request. This might include notes on potential bugs, suggestions for refactoring, or questions about your implementation.
+3. Discussion and Revisions: You will have the opportunity to discuss the feedback with the reviewer. Make necessary changes to address any concerns before the code is merged.
+
+### Tips for a Smooth Code Review
+
+- **Focus on a Single Feature or Bug Fix**: Keep each MR/PR focused on a single feature or bug fix to make the review process more straightforward.
+- **Write Clear Commit Messages**: Use clear and descriptive commit messages that accurately describe the changes made.
+- **Include Documentation and Tests**: If your code changes require updates to documentation or new tests, include these in the MR/PR.
+- **Respond Promptly to Feedback**: Engage with the review process by responding to comments and making necessary changes in a timely manner.
+
+Following these guidelines will help streamline the code review process and ensure that your contributions are integrated smoothly and effectively into the project.
+
+### Linking to Issues
+
+If you are using a [Kanban Boards](kanban.md)], when creating a MR/PR, link it to the relevant issue or ticket in your issue tracker. This helps reviewers understand the context and purpose of your changes. You can do this by referencing the issue number in your MR/PR description or title, e.g., "Fixes #1234".

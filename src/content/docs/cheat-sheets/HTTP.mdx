@@ -1,0 +1,51 @@
+---
+title: HTTP Methods
+---
+
+import {
+  Aside,
+  Card,
+  CardGrid,
+  Code,
+  LinkCard,
+  Steps,
+} from "@astrojs/starlight/components";
+
+<CardGrid>
+  <Card title="GET">
+    <p>Retrieve data (Read)</p>
+    <p>No payload, idempotent (repeated requests have same effect)</p>
+  </Card>
+  <Card title="POST">
+    <p>Create or update data (Create)</p>
+    <p>Has payload, not idempotent</p>
+  </Card>
+  <Card title="PUT">
+    <p>Replace entire resource (Update/Replace)</p>
+    <p>Has payload, replaces resource entirely</p>
+  </Card>
+  <Card title="DELETE">
+    <p>Delete a resource</p>
+    <p>No payload, removes resource permanently</p>
+  </Card>
+  <Card title="PATCH">
+    <p>Partially update a resource</p>
+    <p>Has payload, updates specific parts</p>
+  </Card>
+  <Card title="HEAD">
+    <p>Get resource headers only (metadata, availability)</p>
+    <p>No payload, no body returned</p>
+  </Card>
+  <Card title="OPTIONS">
+    <p>Get supported HTTP methods for a resource</p>
+    <p>No payload, returns allowed methods</p>
+  </Card>
+  <Card title="TRACE">
+    <p>Echo received request for diagnostics (uncommon, security concerns)</p>
+    <p>No payload, returns the full request message</p>
+  </Card>
+  <Card title="CONNECT">
+    <p>Establish tunnel through proxy for secure communication (HTTPS)</p>
+    <p>Has payload (specifies remote server), used with proxies</p>
+  </Card>
+</CardGrid>

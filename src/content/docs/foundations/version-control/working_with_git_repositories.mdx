@@ -1,0 +1,106 @@
+---
+title: Working with Git Repositories
+---
+
+## Creating a New Repository
+
+So, you’ve got a project and you’re ready to start using Git to keep everything in check? Awesome! First up, you need a place to store all your project files and track their changes—this is what we call a repository (or "repo" for short). Here’s how to set one up:
+
+1. **Go to Your Project Folder**: Open up your command line and navigate to the folder where your project lives.
+
+   ```sh
+   cd path/to/your/project
+   ```
+
+2. **Initialize Git**: Now, let’s tell Git to start tracking changes in this folder by turning it into a Git repository:
+
+   ```sh
+   git init
+   ```
+
+   Boom! You’ve just created a new Git repository in your project folder.
+
+## Adding and Committing Files
+
+Next, let’s get Git to start keeping an eye on your files. This is called "staging" and "committing." Think of it like snapping a picture of your project at a certain point in time.
+
+1. **Stage Your Files**: To tell Git which files you want to track, use this command:
+
+   ```sh
+   git add .
+   ```
+
+   :::note
+   The `.` here tells Git to stage everything in the current directory. If you only want to add specific files, you can list them individually.
+   :::
+
+2. **Commit Your Changes**: Once your files are staged, save them to your repo with a commit message. This message should briefly describe what changes you’ve made.
+
+   A good commit should:
+
+   - **Focus on One Thing**: Each commit should deal with a single task or change.
+   - **Keep Things Working**: Make sure your commit doesn’t break anything.
+   - **Use a Prefix**: Start your commit message with a word that explains what kind of change it is.
+   - **Be Brief and Clear**: Describe the change in a few words.
+   - **Start with a Verb**: Use the present tense, like "add" or "fix."
+   - **Format Properly**: Stick to lowercase letters and hyphens for easy reading.
+
+     Here’s an example:
+
+     ```sh
+     git commit -m "chore: initial commit"
+     ```
+
+3. **Keep Going**: As you keep working on your project, you’ll make more changes. For each change:
+
+   - **Stage the File**: Add it to the staging area:
+
+   ```sh
+   git add <filename>
+   ```
+
+   - **Commit with a Clear Message**: Describe what you did:
+
+     ```sh
+     git commit -m "fix: brief description of the change"
+     ```
+
+### What Do Those Commit Message Prefixes Mean?
+
+- `chore:`: For routine tasks that don’t change your code’s functionality.
+- `ci:`: For updating continuous integration stuff.
+- `docs:`: For when you add or update documentation.
+- `feat:`: For when you add a new feature.
+- `fix:`: For squashing bugs.
+- `refactor:`: For changing the structure of your code without changing what it does.
+- `style:`: For tweaks like reformatting code.
+- `test:`: For adding or updating tests.
+
+## Basic Git Commands
+
+You’re going to use these commands a lot, so let’s get comfy with them:
+
+- **Check What’s Going On**: See what’s changed and what’s staged for commit.
+
+```sh
+git status
+```
+
+- **Look Back in Time**: Check out the history of all your commits.
+
+  ```sh
+  git log
+  ```
+
+- **Make Changes**: Edit your files, then stage and commit them as you go.
+
+  ```sh
+  git add <filename>
+  git commit -m "Describe your changes"
+  ```
+
+- **See What’s Different**: Compare your current files to the last commit to see what’s changed.
+
+  ```sh
+  git diff
+  ```

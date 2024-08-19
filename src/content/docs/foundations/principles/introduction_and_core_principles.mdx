@@ -1,0 +1,177 @@
+---
+title: Introduction and Core Principles
+---
+
+Software development principles are guidelines that help developers create efficient, maintainable, and scalable code. By following these principles, developers can produce software that is easier to understand, modify, and extend, ultimately leading to more successful projects. This document introduces three core principles: KISS, DRY, and YAGNI, which are foundational to good software design.
+
+## KISS (Keep It Simple, Stupid)
+
+The KISS principle emphasizes simplicity in design and implementation. By keeping things simple, developers can create code that is easier to understand and maintain.
+
+- Use clear and descriptive names for variables and functions.
+
+  ```javascript
+  // Bad
+  let x = 10;
+
+  // Good
+  let playerScore = 10;
+  ```
+
+- Keep lines of code short for better readability.
+
+  ```javascript
+  // Bad
+  if (playerScore > 50 && playerLives > 0 && levelCompleted) {
+    /* ... */
+  }
+
+  // Good
+  const hasEnoughScore = playerScore > 50;
+  const isPlayerAlive = playerLives > 0;
+
+  if (hasEnoughScore && isPlayerAlive && levelCompleted) {
+    /* ... */
+  }
+  ```
+
+- Write user-facing text that is easy to understand and manage.
+
+  ```javascript
+  // Bad
+  alert("Err!");
+
+  // Good
+  const MESSAGES = {
+    error: "An error occurred. Please try again.",
+  };
+
+  alert(MESSAGES.error);
+  ```
+
+- Avoid complex and deeply nested code structures.
+
+  ```javascript
+  // Bad
+  function processGame() {
+    if (gameStarted) {
+      if (playerLives > 0) {
+        if (levelCompleted) {
+          // ...
+        }
+      }
+    }
+  }
+
+  // Good
+  function processGame() {
+    if (!gameStarted || playerLives <= 0) return;
+
+    if (levelCompleted) {
+      // ...
+    }
+  }
+  ```
+
+- Handle errors consistently to make debugging easier.
+
+  ```javascript
+  // Bad
+  try {
+    // code that may throw
+  } catch (e) {
+    console.log(e);
+  }
+
+  // Good
+  try {
+    // code that may throw
+  } catch (error) {
+    console.error("An error occurred:", error.message);
+  }
+  ```
+
+- Use comments wisely; avoid writing too many unnecessary comments.
+
+  ```javascript
+  // Bad
+  // This function adds two numbers
+  function add(a, b) {
+    return a + b;
+  }
+
+  // Good
+  // Calculate the player's new score after bonus
+  function calculateNewScore(currentScore, bonus) {
+    return currentScore + bonus;
+  }
+  ```
+
+## DRY (Don’t Repeat Yourself)
+
+The DRY principle encourages code reuse and the elimination of redundancy. By avoiding repetition, developers can reduce the risk of inconsistencies and make the codebase easier to maintain.
+
+- Keep files short and focused to make them easier to read.
+
+  ```javascript
+  // Separate game logic into different files/modules
+  // player.js
+  export function createPlayer(name) {
+    /* ... */
+  }
+
+  // game.js
+  import { createPlayer } from "./player.js";
+  ```
+
+- Declare constants at the beginning of your code for easy access and modification.
+
+  ```javascript
+  const MAX_PLAYERS = 4;
+  const GAME_SPEED = 1.5;
+  ```
+
+- Follow a consistent coding style to ensure uniformity and readability.
+  :::note
+  Use a linter like ESLint to enforce coding standards
+  :::
+- Use default parameters to avoid repetitive code.
+
+  ```javascript
+  function startGame(level = 1, difficulty = "easy") {
+    // ...
+  }
+  ```
+
+- Replace "magic numbers" with named constants for clarity.
+
+  ```javascript
+  // Bad
+  if (playerLives === 3) {
+    /* ... */
+  }
+
+  // Good
+  const MAX_LIVES = 3;
+  if (playerLives === MAX_LIVES) {
+    /* ... */
+  }
+  ```
+
+- Remove unused code to keep the codebase clean.
+
+## YAGNI (You Aren’t Gonna Need It)
+
+The YAGNI principle advises against implementing features until they are necessary. This helps prevent unnecessary complexity and keeps the codebase focused on current requirements.
+
+- Add features only when they are necessary to avoid unnecessary complexity.
+  Focus on core features first, like player movement and collision detection, before adding advanced AI
+
+## Glossary of Terms
+
+- **Variable**: A storage location identified by a memory address and a symbolic name (an identifier), which contains some known or unknown quantity of information referred to as a value.
+- **Function**: A block of organized, reusable code that is used to perform a single, related action.
+- **Constant**: A value that cannot be altered by the program during normal execution.
+- **Linter**: A tool that analyzes source code to flag programming errors, bugs, stylistic errors, and suspicious constructs.
+- **Magic Number**: A unique value with unexplained meaning or multiple occurrences which could (preferably) be replaced with a named constant.
+- **Refactor**: The process of restructuring existing computer code without changing its external behavior.

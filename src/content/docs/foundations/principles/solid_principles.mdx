@@ -1,0 +1,187 @@
+---
+title: SOLID Principles
+---
+
+The SOLID principles are a set of guidelines that help developers create software that is easy to maintain, extend, and understand. These principles are particularly useful in object-oriented programming and can be applied to both web and game development to improve code quality and design.
+
+## SRP (Single Responsibility Principle) & Modularity
+
+The Single Responsibility Principle states that a class or module should have only one reason to change, meaning it should have only one job or responsibility. Modularity involves breaking down a program into smaller, independent parts.
+
+- Keep related logic together in one place.
+  - **Game Example**: Keep all player-related logic in a `Player` class.
+  - **Web Example**: Use a `User` class to manage user-related operations.
+- Separate business logic from user interface logic.
+  - **Game Example**: Separate game mechanics from rendering logic.
+  - **Web Example**: Use separate modules for data processing and UI rendering.
+- Break your code into small, independent modules.
+  - **Game Example**: Use different files for different game components, like `Player.js` and `Enemy.js`.
+  - **Web Example**: Organize your web application into modules like `Auth.js` and `Dashboard.js`.
+- Write small functions that do one thing well (atomic functions).
+
+  ```javascript
+  // Bad
+  function updatePlayer(player, score, level) {
+    player.score += score;
+    player.level = level;
+    console.log("Player updated");
+  }
+
+  // Good
+  function updatePlayerScore(player, score) {
+    player.score += score;
+  }
+
+  function updatePlayerLevel(player, level) {
+    player.level = level;
+  }
+  ```
+
+## OCP (Open/Closed Principle)
+
+The Open/Closed Principle states that software entities should be open for extension but closed for modification. This means you should be able to add new functionality without changing existing code.
+
+- Design your code to allow new features without altering existing code.
+
+```javascript
+// Bad
+class Game {
+  render3D() {
+    /* ... */
+  }
+  render2D() {
+    /* ... */
+  }
+}
+
+// Good
+class Game {
+  render(renderer) {
+    renderer.render();
+  }
+}
+```
+
+    - Game Use Case: Add new rendering techniques without modifying the Game class.
+    - Web Use Case: Add new payment gateways to an e-commerce platform without altering the existing payment processing code.
+
+## LSP (Liskov Substitution Principle)
+
+The Liskov Substitution Principle states that objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.
+
+- Use immutable objects to prevent unwanted changes.
+- Prefer composition over inheritance for flexibility.
+
+```javascript
+// Bad
+class Bird extends Animal {
+  fly() {
+    console.log("Flying...");
+  }
+}
+
+// Good
+class FlyingAbility {
+  fly() {
+    console.log("Flying...");
+  }
+}
+
+class Animal {
+  constructor(flyingAbility) {
+    this.flyingAbility = flyingAbility;
+  }
+
+  performFly() {
+    if (this.flyingAbility) {
+      this.flyingAbility.fly();
+    } else {
+      console.log("This animal can't fly.");
+    }
+  }
+}
+
+const flyingAbility = new FlyingAbility();
+const bird = new Animal(flyingAbility);
+
+bird.performFly(); // Outputs: "Flying..."
+```
+
+    - Game Use Case: Add abilities to characters dynamically without changing the character class hierarchy.
+    - Web Use Case: Swap out different authentication strategies (e.g., OAuth, JWT) without altering the user management system.
+
+## ISP (Interface Segregation Principle)
+
+The Interface Segregation Principle states that no client should be forced to depend on methods it does not use. This means creating smaller, more specific interfaces.
+
+- Create interfaces that are specific to client needs.
+
+```javascript
+// Bad
+class GameControls {
+  move() {
+    /* ... */
+  }
+  shoot() {
+    /* ... */
+  }
+  fly() {
+    /* ... */
+  }
+}
+
+// Good
+class GroundControls {
+  move() {
+    /* ... */
+  }
+  shoot() {
+    /* ... */
+  }
+}
+
+class AirControls {
+  fly() {
+    /* ... */
+  }
+}
+```
+
+    - Game Use Case: Different control interfaces for ground and air vehicles.
+    - Web Use Case: Separate interfaces for different user roles, like admin and regular users.
+
+## DIP (Dependency Inversion Principle)
+
+The Dependency Inversion Principle states that high-level modules should not depend on low-level modules. Both should depend on abstractions.
+
+- Depend on abstractions rather than concrete implementations.
+
+```javascript
+// Bad
+class Game {
+  constructor() {
+    this.renderer = new WebGLRenderer();
+  }
+}
+
+// Good
+class Game {
+  constructor(renderer) {
+    this.renderer = renderer;
+  }
+}
+
+const gameRenderer = new WebGLRenderer();
+const game = new Game(gameRenderer);
+```
+
+    - Game Use Case: Swap out different rendering engines (e.g., WebGL, Canvas) without altering the game logic.
+    - Web Use Case: Use dependency injection to provide different database connectors (e.g., MongoDB, PostgreSQL) without changing the data access layer.
+
+## Glossary of Terms
+
+- **Class**: A blueprint for creating objects in object-oriented programming.
+- **Module**: A self-contained unit of code that encapsulates functionality.
+- **Immutable Object**: An object whose state cannot be modified after it is created.
+- **Composition**: A design principle that involves combining simple objects to create more complex ones.
+- **Interface**: A contract that defines a set of methods that a class must implement.

@@ -1,0 +1,82 @@
+---
+title: Collaborating with GitHub and GitLab
+---
+
+## What are GitHub and GitLab?
+
+GitHub and GitLab are two popular platforms that make it easy to store your code online, work with others, and manage your projects. They’re like online homes for your Git repositories, offering tools for version control, issue tracking, and more.
+
+- **GitHub**: This platform is famous for its massive community and a vast collection of open-source projects. Whether you're working on personal projects or professional ones, GitHub is a great choice.
+- **GitLab**: Similar to GitHub, GitLab also offers great features but with a strong focus on DevOps. It includes built-in tools for Continuous Integration and Continuous Deployment (CI/CD). Plus, if you want more control, you can even self-host GitLab.
+
+## Creating and Connecting a Repository on GitHub and GitLab
+
+To start collaborating, you need to create a remote repository and connect it to your local project. Here’s how you can do that on both platforms:
+
+### GitHub
+
+1. **Create a GitHub Account**: If you don’t have one yet, you can sign up at [github.com](https://github.com).
+2. **Create a New Repository**:
+   - Go to your GitHub dashboard.
+   - Click on the **New** button to start a new repository.
+   - Fill in the details like the repository name, description, and choose whether it’s public or private.
+   - Click **Create repository**.
+3. **Connect Your Local Repository**:
+
+   - Open your project folder on your computer and run these commands to link it to GitHub:
+     ```sh
+     git remote add origin https://github.com/username/repository.git
+     git branch -M main
+     git push -u origin main
+     ```
+
+### GitLab
+
+1. **Create a GitLab Account**: Sign up at [gitlab.com](https://gitlab.com) or use a self-hosted version if your organization has one.
+2. **Create a New Repository**:
+   - Go to your GitLab dashboard.
+   - Click on **New Project**.
+   - Choose **Create blank project**.
+   - Enter your project’s name, description, and choose the visibility.
+   - Click **Create project**.
+3. **Connect Your Local Repository**:
+
+   - Open your project folder on your computer and run these commands to link it to GitLab:
+     ```sh
+     git remote add origin https://gitlab.com/username/repository.git
+     git branch -M main
+     git push -u origin main
+     ```
+
+## Pushing and Pulling Changes
+
+Now that your local repository is connected to a remote one on GitHub or GitLab, you can start pushing and pulling changes.
+
+- **Pushing Changes**: This command sends your committed changes from your local repository to the remote one.
+
+  ```sh
+  git push origin main
+  ```
+
+- **Pulling Changes**: This command brings in updates from the remote repository to your local one.
+
+  ```sh
+  git pull origin main
+  ```
+
+  :::tip[Keep Your Code Up to Date]
+  Before starting any new work, make sure to pull the latest changes to avoid conflicts:
+
+  ```sh
+  git pull --rebase origin main
+  ```
+
+  :::
+
+If you have changes to push and run into conflicts during the rebase, resolve them, and then push your changes:
+
+```sh
+git push -f
+```
+
+This helps keep your project’s history clean and easy to follow.

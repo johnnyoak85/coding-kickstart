@@ -1,0 +1,160 @@
+---
+title: Coding Practices and Patterns
+---
+
+Effective coding practices and patterns are essential for creating software that is maintainable, scalable, and efficient. These practices help developers write code that is consistent, easy to understand, and adaptable to changing requirements. This section covers key practices such as following conventions, minimizing dependencies, and optimizing performance, which are crucial for both web and game development.
+
+## Convention over Configuration
+
+The principle of Convention over Configuration suggests that developers should adhere to standard conventions, reducing the need for extensive configuration. This approach streamlines development and helps maintain consistency across projects.
+
+- Follow standard coding conventions to minimize the need for detailed configuration.
+  - **Web Example**: Use a consistent naming convention for variables and functions across your web application.
+  - **Game Example**: Apply consistent naming and formatting rules in game scripts to ensure readability and maintainability.
+
+## Law of Demeter (Principle of Least Knowledge)
+
+The Law of Demeter, also known as the Principle of Least Knowledge, states that a function should only interact with its immediate dependencies. This reduces the complexity of the code and minimizes the impact of changes.
+
+- Ensure that functions only interact with their immediate dependencies to reduce complexity.
+
+```javascript
+// Bad (Web)
+class User {
+  constructor(app) {
+    this.app = app;
+  }
+
+  getProfile() {
+    return this.app.database.getUserProfile(this);
+  }
+}
+
+// Good (Web)
+class User {
+  constructor(database) {
+    this.database = database;
+  }
+
+  getProfile() {
+    return this.database.getUserProfile(this);
+  }
+}
+
+// Bad (Game)
+class Player {
+  constructor(game) {
+    this.game = game;
+  }
+
+  getScore() {
+    return this.game.scoreManager.getPlayerScore(this);
+  }
+}
+
+// Good (Game)
+class Player {
+  constructor(scoreManager) {
+    this.scoreManager = scoreManager;
+  }
+
+  getScore() {
+    return this.scoreManager.getPlayerScore(this);
+  }
+}
+```
+
+## Continuous Feedback and Iteration
+
+Continuous feedback and iteration are key components of agile development. By regularly testing and updating code, developers can adapt to changes and improve software quality over time.
+
+- Regularly test and update your code to adapt to changes and improve quality (agile development).
+
+  - Web Example: Use automated testing frameworks like Jest for JavaScript to run tests continuously during web development.
+  - Game Example: Implement playtesting sessions to gather feedback on game mechanics and user experience.
+
+## Robustness & Error Prevention
+
+Robustness refers to the ability of software to handle unexpected inputs gracefully. Error prevention strategies, such as input validation and automated testing, help ensure that software behaves reliably.
+
+- Ensure your software can handle unexpected inputs gracefully.
+
+```javascript
+// Web Example
+function processUserInput(input) {
+  if (typeof input !== "string") {
+    throw new Error("Invalid input type");
+  }
+  // process the input
+}
+
+// Game Example
+function processGameCommand(command) {
+  if (!command || typeof command !== "string") {
+    throw new Error("Invalid command");
+  }
+  // execute command
+}
+```
+
+- Implement strategies to prevent errors, such as input validation and automated testing.
+
+  - Web Use Case: Use libraries like Joi for input validation in Node.js applications.
+  - Game Use Case: Use automated testing tools to verify game logic and mechanics.
+
+## Performance Optimization
+
+Performance optimization involves writing efficient code that runs smoothly, especially in resource-intensive applications like games. This includes minimizing latency and maximizing throughput.
+
+- Write small, focused functions to enhance code efficiency.
+
+```javascript
+// Web Example
+function calculateUserStats(users) {
+  // complex logic for multiple stats
+}
+
+// Good
+function calculateUserScore(user) {
+  /* ... */
+}
+function calculateUserRank(user) {
+  /* ... */
+}
+
+// Game Example
+function calculateGameStats(players) {
+  // complex logic for multiple stats
+}
+
+// Good
+function calculatePlayerScore(player) {
+  /* ... */
+}
+function calculatePlayerRank(player) {
+  /* ... */
+}
+```
+
+- Optimize code for real-time performance, (**crucial in game development**).
+
+  - Web Use Case: Optimize database queries to reduce response times in web applications.
+  - Game Use Case: Use techniques like object pooling to manage resources efficiently in a game engine.
+
+## Scalability
+
+Scalability refers to the ability of software to handle increased loads and grow without significant changes to the codebase. Modular design is key to achieving scalability.
+
+- Keep your code modular to handle growth and increased loads effectively.
+
+  - Web Use Case: Use microservices architecture for web applications to scale individual components independently.
+  - Game Use Case: Design game systems as independent modules to allow for easy expansion and updates.
+
+## Glossary of Terms
+
+- **Convention**: A standard or agreed-upon way of doing something, often used to ensure consistency in coding style.
+- **Dependency**: A relationship between two pieces of code where one relies on the other to function.
+- **Automated Testing**: The use of software tools to execute tests automatically, ensuring that code behaves as expected.
+- **Latency**: The delay before a transfer of data begins following an instruction for its transfer.
+- **Throughput**: The amount of data processed in a given amount of time.
+- **Microservices**: An architectural style that structures an application as a collection of loosely coupled services.
