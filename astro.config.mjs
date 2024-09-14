@@ -11,7 +11,7 @@ export default defineConfig({
         github: "https://github.com/JohnnyOak85/",
       },
       sidebar: [
-        { label: "Health Tips", link: "health_tips/" },
+        { label: "Health Tips", link: "health-tips/" },
         {
           label: "Code Editors",
           items: [
@@ -35,11 +35,11 @@ export default defineConfig({
                 },
                 {
                   label: "Getting Started with Git",
-                  link: "foundations/version-control/getting_started_with_git/",
+                  link: "foundations/version-control/getting-started-with-git/",
                 },
                 {
                   label: "Working with Git Repositories",
-                  link: "foundations/version-control/working_with_git_repositories/",
+                  link: "foundations/version-control/working-with-git-repositories/",
                 },
                 {
                   label: "Branching",
@@ -47,23 +47,23 @@ export default defineConfig({
                 },
                 {
                   label: "Merging and Rebasing",
-                  link: "foundations/version-control/merging_and_rebasing/",
+                  link: "foundations/version-control/merging-and-rebasing/",
                 },
                 {
                   label: "Collaborating with GitHub and GitLab",
-                  link: "foundations/version-control/collaborating_with_github_and_gitlab/",
+                  link: "foundations/version-control/collaborating-with-github-and-gitlab/",
                 },
                 {
                   label: "Merge and Pull Requests",
-                  link: "foundations/version-control/merge_and_pull_requests/",
+                  link: "foundations/version-control/merge-and-pull-requests/",
                 },
                 {
                   label: "Git Cheat Sheet",
-                  link: "foundations/version-control/git_cheat_sheet/",
+                  link: "foundations/version-control/git-cheat-sheet/",
                 },
                 {
                   label: "Troubleshooting and Resources",
-                  link: "foundations/version-control/troubleshooting_and_resources/",
+                  link: "foundations/version-control/troubleshooting-and-resources/",
                 },
                 {
                   label: "Glossary",
@@ -76,7 +76,7 @@ export default defineConfig({
               items: [
                 {
                   label: "Naming Conventions",
-                  link: "foundations/standards/naming_conventions/",
+                  link: "foundations/standards/naming-conventions/",
                 },
                 {
                   label: "Code Comments",
@@ -89,19 +89,19 @@ export default defineConfig({
               items: [
                 {
                   label: "Introduction and Core Principles",
-                  link: "foundations/principles/introduction_and_core_principles/",
+                  link: "foundations/principles/introduction-and-core-principles/",
                 },
                 {
                   label: "SOLID Principles",
-                  link: "foundations/principles/solid_principles/",
+                  link: "foundations/principles/solid-principles/",
                 },
                 {
                   label: "Coding Practices and Patterns",
-                  link: "foundations/principles/coding_practices_and_patterns/",
+                  link: "foundations/principles/coding-practices-and-patterns/",
                 },
                 {
                   label: "Advanced Concepts and Considerations",
-                  link: "foundations/principles/advanced_concepts_and_considerations/",
+                  link: "foundations/principles/advanced-concepts-and-considerations/",
                 },
                 {
                   label: "Resources",
@@ -115,15 +115,6 @@ export default defineConfig({
             },
           ],
         },
-
-        // {
-        //   label: "Start",
-        //   items: [
-        //     { label: "Contributing", link: "/start/contributing/" },
-
-        //     { label: "Relevant Links", link: "/start/links/" },
-        //   ],
-        // },
       ],
     }),
   ],
